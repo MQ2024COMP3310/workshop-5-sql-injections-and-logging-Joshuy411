@@ -127,10 +127,10 @@ public class SQLiteConnectionManager {
      */
     public void addValidWord(int id, String word) {
 
-        String sql = "INSERT INTO validWords(id,word) VALUES('" + id + "','" + word + "')";
+        String query2 = "INSERT INTO validWords(id,word) VALUES(=? , )";
 
         try (Connection conn = DriverManager.getConnection(databaseURL);
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(query2)) {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
